@@ -1,0 +1,9 @@
+package com.archer.Expense_Tracker.model;
+
+public class Cost {
+	
+	private String id;
+	private String expenseName;
+	private ExpenseCategory expenseType;
+	private BigDecimal expenseCost;
+}

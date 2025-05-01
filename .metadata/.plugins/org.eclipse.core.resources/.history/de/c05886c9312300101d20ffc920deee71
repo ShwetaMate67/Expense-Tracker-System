@@ -1,0 +1,8 @@
+spring.application.name=Expense-Tracker
+# MongoDB Configuration
+spring.data.mongodb.uri=mongodb://localhost:27017/expense_tracking_db
+spring.data.mongodb.database=expense_tracking_db
+
+# MongoDB connection settings
+spring.data.mongodb.port=27017  # Default MongoDB port
+spring.data.mongodb.host=localhost  # MongoDB host (can be changed if needed)

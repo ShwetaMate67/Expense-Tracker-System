@@ -1,0 +1,5 @@
+package com.archer.Expense_Tracker.model;
+
+public enum ExpenseCategory {
+
+}

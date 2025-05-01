@@ -1,0 +1,81 @@
+package com.archer.Expense_Tracker.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.archer.Expense_Tracker.model.Cost;
+import com.archer.Expense_Tracker.service.ExpenceService;
+
+@RestController
+@RequestMapping("/api/expense")
+public class ExpenseController {
+	
+	private final ExpenceService expenseService;
+	
+	// Constructor Based injection
+	public ExpenseController(ExpenceService expenseService) {
+		super();
+		this.expenseService = expenseService;
+	}
+	
+	//http://localhost:8081/api/expense/add
+	
+   //	{
+  //	    "expenseName": "Amazon",
+   //	    "expenseType": "ENTERTAINMENT",
+  //	    "expenseAmount": 200
+  //	}
+
+	@RequestMapping("/add")
+	public ResponseEntity<String> addExpense(@RequestBody Cost expense) {
+		// TODO Auto-generated method stub
+		expenseService.addExpense(expense);
+		return ResponseEntity.status(HttpStatus.CREATED).body("Expense added successfully");
+		
+	}
+	
+	// http://localhost:8081/api/expense/update
+	
+	@PutMapping("/update")
+	public ResponseEntity<String> updateExpense(@RequestBody Cost expense) {
+		// TODO Auto-generated method stub
+		expenseService.updateExpense(expense);
+		return ResponseEntity.ok().build();
+	}
+	
+	
+	//http://localhost:8081/api/expense/getAll	
+	
+	@RequestMapping("/getAll")
+	public ResponseEntity<List<Cost>> getAllExpense() {
+		// TODO Auto-generated method stub
+	    return	ResponseEntity.status(HttpStatus.OK).body(expenseService.getAllExpense());
+		
+	}
+	
+	//http://localhost:8081/api/expense/Netflix
+	
+	@GetMapping("/{name}")
+	public ResponseEntity<Cost> getExpenseByName(@PathVariable String name) {
+		// TODO Auto-generated method stub
+		return ResponseEntity.ok(expenseService.getExpenseByName(name));
+		
+	}
+	
+    //http://localhost:8081/api/expense/680fe9cf537271222ebcfac5
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deleteExpense(@PathVariable String id) {
+		// TODO Auto-generated method stub
+		expenseService.deleteExpense(id);
+		return ResponseEntity.status(HttpStatus.OK).body("Expense deleted successfully");
+	}
+}

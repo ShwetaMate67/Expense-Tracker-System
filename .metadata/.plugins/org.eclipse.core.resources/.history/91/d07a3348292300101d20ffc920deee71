@@ -1,0 +1,9 @@
+package com.archer.Expense_Tracker.repo;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.archer.Expense_Tracker.model.Cost;
+
+public interface ExpenseRepo extends MongoRepository<Cost, String> {
+	
+}

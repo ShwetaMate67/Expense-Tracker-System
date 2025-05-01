@@ -1,0 +1,58 @@
+package com.archer.Expense_Tracker.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.archer.Expense_Tracker.model.Cost;
+import com.archer.Expense_Tracker.service.ExpenceService;
+
+@RestController
+@RequestMapping("/api/expense")
+public class ExpenseController {
+	
+	private final ExpenceService expenseService;
+	
+	// Constructor Based injection
+	public ExpenseController(ExpenceService expenseService) {
+		super();
+		this.expenseService = expenseService;
+	}
+
+	@RequestMapping("/add")
+	public ResponseEntity addExpense(@RequestBody Cost expense) {
+		// TODO Auto-generated method stub
+		expenseService.addExpense(expense);
+		return ResponseEntity.status(HttpStatus.CREATED).body("Expense added successfully");
+		
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity updateExpense(@RequestBody Cost expense) {
+		// TODO Auto-generated method stub
+		expenseService.updateExpense(expense);
+		return ResponseEntity.ok().build();
+	}
+	
+	@RequestMapping("/getAll")
+	public ResponseEntity<List<Cost>> getAllExpense() {
+		// TODO Auto-generated method stub
+	    return	ResponseEntity.status(HttpStatus.OK).body(expenseService.getAllExpense());
+		
+	}
+	
+	public void getExpenseByName() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void deleteExpense() {
+		// TODO Auto-generated method stub
+		
+	}
+}

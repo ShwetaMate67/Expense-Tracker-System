@@ -1,0 +1,45 @@
+package com.archer.Expense_Tracker.service;
+
+import org.springframework.stereotype.Service;
+
+import com.archer.Expense_Tracker.model.Cost;
+import com.archer.Expense_Tracker.repo.ExpenseRepo;
+
+@Service
+public class ExpenceService {
+	
+	
+	private final ExpenseRepo expenseRepo;
+	
+	// Constructor Based injection
+	public ExpenceService(ExpenseRepo expenseRepo) {
+		super();
+		this.expenseRepo = expenseRepo;
+	}
+	
+	public void addExpense(Cost expense) {
+		// TODO Auto-generated method stub
+		expenseRepo.insert(expense);
+	}
+	
+	public void updateExpense() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void getAllExpense() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void getExpenseByName() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void deleteExpense() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
