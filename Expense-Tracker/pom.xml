@@ -59,7 +59,13 @@
 			<artifactId>mongodb</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided dependency block fixes the identified vulnerability in the Apache Tomcat component. The update to version 10.1.44 ensures that the issue described in the vulnerability details is fully addressed. This fix upgrades the artifact with the required new version that addresses the vulnerability and protects against the mentioned Denial of Service attack. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
