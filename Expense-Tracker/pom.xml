@@ -59,7 +59,13 @@
 			<artifactId>mongodb</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The Apache Tomcat version used (10.1.40) is vulnerable to a Denial of Service (DoS) attack via unlimited multipart uploads.  This fix updates the tomcat-embed-core dependency to version 10.1.42, which addresses this vulnerability by implementing resource limits and throttling for multipart uploads, mitigating the risk of DoS attacks. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.42</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
