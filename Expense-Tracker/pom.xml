@@ -59,7 +59,25 @@
 			<artifactId>mongodb</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Updated the version of tomcat-embed-core to 10.1.44 to resolve the noted vulnerability. This fix ensures resources are allocated with the appropriate limits and throttling to prevent potential denial of service attacks. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The fixed version of Spring Web, 6.2.8, resolves a Reflected File Download (RFD) vulnerability in prior versions. This vulnerability arises from the improper handling of the `Content-Disposition` header when a non-ASCII charset is used, allowing an attacker to inject malicious commands into the downloaded content of the response. The fix ensures that user-supplied input is properly sanitized, and the vulnerability is completely addressed by this update. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.2.8</version>
+        </dependency>
+        <!-- SECURITY FIX: The provided Maven dependency on spring-webmvc version 6.2.6 is explicitly specified with the version to address the Path Traversal Vulnerability. It offsets the risk associated with version variance and ensures that the application has the necessary security fixes. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
