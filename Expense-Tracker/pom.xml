@@ -59,7 +59,13 @@
 			<artifactId>mongodb</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided Maven dependency update addresses the Improper Resource Shutdown or Release vulnerability in Apache Tomcat, which affected older versions of Tomcat. The fixed version, 10.1.44, is not affected by this vulnerability and resolves the issue entirely. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
