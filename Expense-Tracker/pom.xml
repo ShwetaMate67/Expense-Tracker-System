@@ -59,7 +59,13 @@
 			<artifactId>mongodb</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability in Apache Tomcat 10.1.40 was addressed in version 10.1.44.  Updating to this version mitigates the denial-of-service risk associated with unbounded multipart uploads. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
