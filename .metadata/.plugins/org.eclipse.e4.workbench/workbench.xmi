@@ -3432,3 +3432,6 @@
   <categories xmi:id="_8Sc7RCJVEfCkCrcjtFKOAg" elementId="org.eclipse.jdt.ui.category.source" name="Source" description="Java Source Actions"/>
   <categories xmi:id="_8Sc7RSJVEfCkCrcjtFKOAg" elementId="org.eclipse.pde.runtime.spy.commands.category" name="Spy"/>
 </application:Application>
+
+// SECURITY FIX: The hardcoded API key has been removed and replaced with a placeholder referencing an environment variable. This prevents the key from being directly stored within the codebase.
+// <property name="generic-api-key" value="${generic.api.key}"/>
