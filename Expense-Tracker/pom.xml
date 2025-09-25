@@ -59,7 +59,13 @@
 			<artifactId>mongodb</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability is due to an outdated version of Apache Tomcat. Upgrading to the latest version, 10.1.41, resolves the issue by implementing proper resource allocation limits. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.41</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
